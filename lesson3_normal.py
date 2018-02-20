@@ -19,17 +19,16 @@ MAX_SALARY = 500000
 
 result = dict(zip(names, salary))
 
-f = open('salary.txt', 'w+', encoding='UTF-8')
-
-for key, value in result.items():
-    if value <= MAX_SALARY:
-        f.write('{} - {}\n'.format(key, value))
-f.seek(0)
+with open('salary.txt', 'w+', encoding='UTF-8') as file:
+    for key, value in result.items():
+        if value <= MAX_SALARY:
+            file.write('{} - {}\n'.format(key, value))
 
 
-for line in f:
-    name, salary = line.split(' - ')
-    tax = int(salary) / 100 * TAX_PERCENT
-    after_tax = int(salary) - int(tax)
-    print('{} получил зарплату в размере: {}, налог составил: {}'.format(name.upper(), after_tax, int(tax)))
-f.close()
+with open('salary.txt', 'r', encoding='UTF-8') as file:
+    for line in file:
+        name, salary = line.split(' - ')
+        tax = int(salary) / 100 * TAX_PERCENT
+        after_tax = int(salary) - int(tax)
+        print('{} получил зарплату в размере: {}, налог составил: {}'.format(name.upper(), after_tax, int(tax)))
+
