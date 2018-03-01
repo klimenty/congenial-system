@@ -13,6 +13,8 @@
 #
 name_input = ['Василий Васильевич', 'Иван Иванов', 'Алексей Алексеевич']
 salary_input = [20000, 100000, 550000]
+
+
 def salary_less_than_500000():
     name = []
     salary = []
@@ -26,6 +28,7 @@ def salary_less_than_500000():
             i += 1
     employers_salary = dict(zip(name, salary))
     return employers_salary
+
 
 emp_list = []
 emp_dict = salary_less_than_500000()
